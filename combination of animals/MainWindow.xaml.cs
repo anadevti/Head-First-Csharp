@@ -23,6 +23,30 @@ namespace combination_of_animals
         public MainWindow()
         {
             InitializeComponent();
+            setUpGame();
+        }
+
+        void setUpGame()
+        {
+            List<string> animalEmoji = new List<string>()
+            {
+                "\ud83d\udc35", "\ud83d\udc35",
+                "\ud83e\udd81", "\ud83e\udd81",
+                "\ud83d\udc37", "\ud83d\udc37",
+                "\ud83d\udc31", "\ud83d\udc31",
+                "\ud83d\udc2e", "\ud83d\udc2e",
+                "\ud83d\udc38", "\ud83d\udc38",
+                "\ud83e\udd82", "\ud83e\udd82",
+                "\ud83d\udc1e", "\ud83d\udc1e"
+            };
+            Random rand = new Random();
+
+            foreach (TextBlock textBlock in MainGrid.Children.OfType<TextBlock>())
+            {
+                int index = rand.Next(animalEmoji.Count);
+                string nextEmoji = animalEmoji[index];
+                textBlock.Text = nextEmoji;
+            }
         }
     }
 }
